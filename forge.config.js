@@ -6,7 +6,8 @@ module.exports={
             "name": "@electron-forge/maker-squirrel",
             "config": {
                 "name": "my_electron_app",
-                "iconUrl": path.join(__dirname, "icon.ico")
+                "iconUrl": path.join(__dirname, "icon.ico"),
+                "setupIcon": path.join(__dirname, "icon.ico")
             }
         },
         {
