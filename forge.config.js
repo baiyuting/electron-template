@@ -1,6 +1,9 @@
 const path = require("path")
 module.exports={
-    "packagerConfig": {},
+    "packagerConfig": {
+        "icon":path.join(__dirname, "icon.ico"),
+        "overwrite":true
+    },
     "makers": [
         {
             "name": "@electron-forge/maker-squirrel",
