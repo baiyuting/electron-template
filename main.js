@@ -2,6 +2,9 @@ const {app, BrowserWindow} = require('electron')
 
 if (require('electron-squirrel-startup')) return;
 
+/**
+ * 更新代码
+ */
 function update_electron() {
     const isDev = require('electron-is-dev')
     if (!isDev) {
@@ -24,12 +27,19 @@ function update_electron() {
                 message: "应用更新出错",
                 detail: message
             })
-            const fs = require("fs")
-            fs.writeFileSync("update_error.log", message, "utf-8") // 写入错误日志
         })
 
     }
 
+}
+
+/**
+ * 自启动逻辑
+ */
+function autoStart() {
+    app.setLoginItemSettings({
+        openAtLogin:true
+    })
 }
 
 function createWindow() {
@@ -44,7 +54,7 @@ function createWindow() {
     win.loadFile('index.html')
 }
 
-app.whenReady().then(createWindow).then(update_electron)// 创建好窗口之后执行更新程序
+app.whenReady().then(createWindow).then(update_electron).then(autoStart)// 创建好窗口之后执行更新程序、设置自启动
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
