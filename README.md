@@ -13,6 +13,12 @@ npm config get registry
 
 npm config set registry https://registry.npm.taobao.org
 
+3、设置 electron 国内源 【可选】
+
+如果用户发现没有设置此步骤之后 electron 下载过慢，可以设置此步骤，将 electron 镜像改为 淘宝源
+
+npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
+
 使用方式：
 
 1、下载项目
