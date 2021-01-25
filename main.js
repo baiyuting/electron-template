@@ -2,6 +2,9 @@ const {app, BrowserWindow} = require('electron')
 
 if (require('electron-squirrel-startup')) return;
 
+app.disableHardwareAcceleration() // 当在虚拟机中安装时，页面显示空白，此时需要本代码禁用硬件加速 https://github.com/electron-userland/electron-forge/issues/1955 https://github.com/electron/windows-installer/pull/367
+
+
 /**
  * 更新代码
  */
@@ -50,6 +53,8 @@ function createWindow() {
             nodeIntegration: true
         }
     })
+    const path = require("path")
+    win.loadFile(path.join(__dirname, 'index.html'))
 
     win.loadFile('index.html')
 }
