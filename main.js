@@ -24,13 +24,13 @@ function update_electron() {
             autoUpdater.quitAndInstall()
         })
 
-        autoUpdater.on('error', message => {
-            dialog.showMessageBox({
-                type: 'info',
-                message: "应用更新出错",
-                detail: message
-            })
-        })
+        // autoUpdater.on('error', message => {
+        //     dialog.showMessageBox({
+        //         type: 'info',
+        //         message: "应用更新出错",
+        //         detail: message
+        //     })
+        // })
 
     }
 
