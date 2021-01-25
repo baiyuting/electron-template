@@ -57,8 +57,6 @@ function createWindow() {
     })
     const path = require("path")
     win.loadFile(path.join(__dirname, 'index.html'))
-
-    win.loadFile('index.html')
 }
 
 app.whenReady().then(createWindow).then(update_electron).then(autoStart)// 创建好窗口之后执行更新程序、设置自启动
