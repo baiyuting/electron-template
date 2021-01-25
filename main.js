@@ -17,8 +17,10 @@ function update_electron() {
         const url = `${server}/message_pushing`
 
         autoUpdater.setFeedURL({url})
-        // 每次启动时检查一次
-        autoUpdater.checkForUpdates()
+        // 每5小时启动时检查一次
+        setInterval(() => {
+            autoUpdater.checkForUpdates()
+        }, 60000*60*5)
 
         autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
             autoUpdater.quitAndInstall()
